@@ -20,7 +20,7 @@
 </metadata>
 <defs/>
 <g id="レイヤー 2" vectornator:layerName="レイヤー 2">
-<path stroke="#000000" stroke-width="2" d="M25+200C25+103.35+103.35+25+200+25C296.65+25+375+103.35+375+200C375+296.65+296.65+375+200+375C103.35+375+25+296.65+25+200Z" fill="#ffffff" stroke-linecap="round" opacity="1" stroke-linejoin="round"/>
+<path d="M25+200C25+103.35+103.35+25+200+25C296.65+25+375+103.35+375+200C375+296.65+296.65+375+200+375C103.35+375+25+296.65+25+200Z" opacity="1" fill="#ffffff"/>
 </g>
 <g id="レイヤー 1" vectornator:layerName="レイヤー 1">
 <g opacity="1">
