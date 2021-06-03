@@ -1,5 +1,5 @@
 # Panjan Wiki
 
 <div align="center">
-    <img src="/public/logo.svg" width="300" />
+    <img src="/public/logo.svg" width="200" />
 </div>
