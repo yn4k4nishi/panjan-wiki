@@ -46,6 +46,7 @@ async function migrate() {
     console.log('migration ran successfully')
   } catch (e) {
     console.error('could not run migration, double check your credentials.')
+    console.error(e)
     process.exit(1)
   }
 }
