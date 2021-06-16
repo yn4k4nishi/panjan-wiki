@@ -2,10 +2,9 @@ import mysql from 'serverless-mysql'
 
 export const db = mysql({
   config: {
-    host: process.env.mysql_host,
-    database: process.env.mysql_database,
-    user: process.env.mysql_user,
-    password: process.env.mysql_password
+    host: process.env.SQL_PANJAN_WIKI_IP,
+    user: process.env.SQL_PANJAN_WIKI_USERNAME,
+    password: process.env.SQL_PANJAN_WIKI_PASSWORD
   }
 })
 
