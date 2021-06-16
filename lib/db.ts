@@ -3,6 +3,7 @@ import mysql from 'serverless-mysql'
 export const db = mysql({
   config: {
     host: process.env.SQL_PANJAN_WIKI_IP,
+    database: "myproject",
     user: process.env.SQL_PANJAN_WIKI_USERNAME,
     password: process.env.SQL_PANJAN_WIKI_PASSWORD
   }
