@@ -1,4 +1,5 @@
 import '../styles/index.css'
+import '../styles/globals.css'
 import Footer from '@/components/footer'
 import Head from 'next/head';
 
