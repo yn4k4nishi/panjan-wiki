@@ -1,4 +1,7 @@
 import { useRouter } from 'next/router'
+import React from "react";
+import ReactMarkdown from "react-markdown";
+import gfm from "remark-gfm";
 
 import { useEntry } from '@/lib/swr-hooks'
 import Container from '@/components/container'
@@ -15,7 +18,9 @@ export default function EditEntryPage() {
         <Nav title="View" />
         <Container>
           <h1 className="font-bold text-3xl my-2">{data.title}</h1>
-          <p>{data.content}</p>
+          <ReactMarkdown plugins={[gfm]} unwrapDisallowed={false}>
+            {data.content}
+          </ReactMarkdown>
         </Container>
       </>
     )
