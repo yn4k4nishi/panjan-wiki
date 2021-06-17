@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Panjan Wiki</title>
-        <link rel="shortcut icon" href="/logo.svg" />
+        <link rel="shortcut icon" href="/logo_dark.svg" />
       </Head>
       <Component {...pageProps} />
       <Footer />
