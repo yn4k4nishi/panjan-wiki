@@ -1,8 +1,6 @@
 import { NextApiHandler } from 'next'
 import { query } from '../../lib/db'
 
-const filter = new Filter()
-
 const handler: NextApiHandler = async (req, res) => {
   const { id, title, content } = req.body
   try {
