@@ -18,9 +18,11 @@ export default function EditEntryPage() {
         <Nav title="View" />
         <Container>
           <h1 className="font-bold text-3xl my-2">{data.title}</h1>
-          <ReactMarkdown plugins={[gfm]} unwrapDisallowed={false}>
-            {data.content}
-          </ReactMarkdown>
+          <div className="markdown-preview">
+            <ReactMarkdown plugins={[gfm]} unwrapDisallowed={false}>
+              {data.content}
+            </ReactMarkdown>
+          </div>
         </Container>
       </>
     )
