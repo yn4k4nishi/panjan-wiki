@@ -1,6 +1,10 @@
 import '../styles/index.css'
 import Footer from '@/components/footer'
+<<<<<<< HEAD
 import Head from 'next/head';
+=======
+import { Provider } from 'next-auth/client'
+>>>>>>> dev
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -9,8 +13,11 @@ function MyApp({ Component, pageProps }) {
         <title>Panjan Wiki</title>
         <link rel="shortcut icon" href="/logo.svg" />
       </Head>
-      <Component {...pageProps} />
-      <Footer />
+      <Provider session={pageProps.session}>
+        <Component {...pageProps} />
+        {/* <Footer /> */}
+      </Provider>
+>>>>>>> dev
     </>
   )
 }
