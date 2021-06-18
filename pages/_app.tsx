@@ -1,10 +1,7 @@
 import '../styles/index.css'
 import Footer from '@/components/footer'
-<<<<<<< HEAD
 import Head from 'next/head';
-=======
 import { Provider } from 'next-auth/client'
->>>>>>> dev
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -17,7 +14,6 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
         {/* <Footer /> */}
       </Provider>
->>>>>>> dev
     </>
   )
 }
