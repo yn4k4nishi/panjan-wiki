@@ -13,13 +13,10 @@ function Button({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        'bg-black',
-        'text-white',
+        'border',
         'p-2',
         'rounded',
-        'uppercase',
-        'text-sm',
-        'font-bold',
+        'text-base',
         {
           [className]: Boolean(className),
         }

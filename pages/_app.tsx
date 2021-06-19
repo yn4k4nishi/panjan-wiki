@@ -6,14 +6,16 @@ import { Provider } from 'next-auth/client'
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <title>Panjan Wiki</title>
-        <link rel="shortcut icon" href="/favicon.svg" />
-      </Head>
-      <Provider session={pageProps.session}>
-        <Component {...pageProps} />
-        {/* <Footer /> */}
-      </Provider>
+      <div className="font-mono">
+        <Head>
+          <title>Panjan Wiki</title>
+          <link rel="shortcut icon" href="/favicon.svg" />
+        </Head>
+        <Provider session={pageProps.session}>
+          <Component {...pageProps} />
+          {/* <Footer /> */}
+        </Provider>
+      </div>
     </>
   )
 }
