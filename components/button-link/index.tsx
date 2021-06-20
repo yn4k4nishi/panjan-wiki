@@ -6,13 +6,14 @@ function ButtonLink({ href = '/', className = '', children }) {
     <Link href={href}>
       <a
         className={cn(
-          'bg-black',
-          'text-white',
-          'p-2',
+          'bg-transparent',
+          'hover:bg-blue-500',
+          'text-blue-700',
+          'hover:text-white',
+          'py-2 px-4',
+          'border border-blue-500',
+          'hover:border-transparent',
           'rounded',
-          'uppercase',
-          'text-sm',
-          'font-bold',
           {
             [className]: Boolean(className),
           }
