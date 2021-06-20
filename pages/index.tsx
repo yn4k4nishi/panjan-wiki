@@ -17,6 +17,8 @@ export default function Home() {
                     </div>}
                     {session && <div>
                         <Button onClick={signOut} className="text-center w-48 m-8">Sign Out</Button>
+                        <p>{session.user.name}</p>
+                        <p>{session.user.email}</p>
                     </div>}
                 </div>
             </div>
