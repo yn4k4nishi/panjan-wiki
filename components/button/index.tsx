@@ -13,10 +13,14 @@ function Button({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        'border',
-        'p-2',
+        'bg-transparent',
+        'hover:bg-blue-500',
+        'text-blue-700',
+        'hover:text-white',
+        'py-2 px-4',
+        'border border-blue-500',
+        'hover:border-transparent',
         'rounded',
-        'text-base',
         {
           [className]: Boolean(className),
         }
