@@ -17,29 +17,12 @@ function Post({ id, title, content }) {
     setDeleting(false)
   }
   return (
-    <div>
-      <div className="flex items-center">
-        <Link href={`/posts/${id}`}>
-          <a className="font-bold py-2">{title}</a>
-        </Link>
-        <div className="flex ml-4">
-          <ButtonLink
-            href={`/posts/edit/${id}?title=${title}&content=${content}`}
-            className="h-5 py-0 mx-1"
-          >
-            Edit
-          </ButtonLink>
-          <Button
-            disabled={deleting}
-            onClick={deleteEntry}
-            className="h-5 py-0 mx-1"
-          >
-            {deleting ? 'Deleting ...' : 'Delete'}
-          </Button>
-        </div>
+    <Link href={`/posts/${id}`}>
+      <div className="flex flex-col items-start bg-gray-100 rounded-md border-r-2 border-b-2 hover:bg-gray-200 cursor-pointer">
+        <a className="font-bold text-xl p-2">{title}</a>
+        <p className="text-sm text-gray-400 px-8">author : date</p> {/* TODO : 著者と日付の表示 */}
       </div>
-      <p>{content}</p>
-    </div>
+    </Link>
   )
 }
 
