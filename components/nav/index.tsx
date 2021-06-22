@@ -4,7 +4,7 @@ import ButtonLink from '@/components/button-link'
 import Button from '../button'
 import { signIn, signOut, useSession } from 'next-auth/client'
 
-export default function Nav({ title = 'Entries' }) {
+export default function Nav({ title = 'Posts' }) {
   const [ session, loading ] = useSession()
 
   return (

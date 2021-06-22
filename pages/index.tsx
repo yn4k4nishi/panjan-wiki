@@ -1,27 +1,38 @@
-import Image from 'next/image'
-import logo from '../public/logo.svg'
-import Button from '@/components/button'
-import { signIn, signOut, useSession } from 'next-auth/client'
+import Skeleton from 'react-loading-skeleton'
 
-export default function Home() {
-    const [ session, loading ] = useSession()
+import Nav from '@/components/nav'
+import Container from '@/components/container'
+import Posts from '@/components/posts'
 
-    return(
-        <div className="flex w-screen h-screen">
-            <div className="mx-auto">
-                <Image src={logo} width={400}></Image>
-                <div className="flex flex-col items-center">
-                    <p className="text-center text-6xl">Panjan Wiki</p>
-                    {!session && <div>
-                        <Button onClick={signIn} className="text-center w-48 m-8">Sign In</Button>
-                    </div>}
-                    {session && <div>
-                        <Button onClick={signOut} className="text-center w-48 m-8">Sign Out</Button>
-                        <p>{session.user.name}</p>
-                        <p>{session.user.email}</p>
-                    </div>}
-                </div>
-            </div>
-        </div>
+import { useEntries } from '@/lib/swr-hooks'
+
+export default function IndexPage() {
+  const { entries, isLoading } = useEntries()
+
+  if (isLoading) {
+    return (
+      <div>
+        <Nav />
+        <Container>
+          <Skeleton width={180} height={24} />
+          <Skeleton height={48} />
+          <div className="my-4" />
+          <Skeleton width={180} height={24} />
+          <Skeleton height={48} />
+          <div className="my-4" />
+          <Skeleton width={180} height={24} />
+          <Skeleton height={48} />
+        </Container>
+      </div>
     )
+  }
+
+  return (
+    <div>
+      <Nav />
+      <Container>
+        <Posts posts={entries} />
+      </Container>
+    </div>
+  )
 }

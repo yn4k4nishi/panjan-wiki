@@ -5,7 +5,7 @@ function fetcher(url: string) {
 }
 
 export function useEntries() {
-  const { data, error } = useSWR(`/api/get-entries`, fetcher)
+  const { data, error } = useSWR(`/api/posts/get-entries`, fetcher)
 
   return {
     entries: data,
@@ -15,5 +15,5 @@ export function useEntries() {
 }
 
 export function useEntry(id: string) {
-  return useSWR(`/api/get-entry?id=${id}`, fetcher)
+  return useSWR(`/api/posts/get-entry?id=${id}`, fetcher)
 }

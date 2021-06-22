@@ -1,9 +1,12 @@
 import '../styles/index.css'
-import Footer from '@/components/footer'
+import {useRequireLogin} from "../lib/useRequireLogin";
 import Head from 'next/head';
 import { Provider } from 'next-auth/client'
 
 function MyApp({ Component, pageProps }) {
+
+  useRequireLogin()
+
   return (
     <>
       <div className="font-mono">

@@ -12,7 +12,7 @@ export default function EntryForm() {
     setSubmitting(true)
     e.preventDefault()
     try {
-      const res = await fetch('/api/create-entry', {
+      const res = await fetch('/api/posts/create-entry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
