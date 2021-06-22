@@ -3,32 +3,26 @@ import logo from '../public/logo.svg'
 import Button from '@/components/button'
 import { signIn, signOut, useSession } from 'next-auth/client'
 import {useRouter} from 'next/router';
+import { useEffect } from 'react';
 
-export default function Home() {
-    const [ session, loading ] = useSession();
-    const router = useRouter();
+export default function Login() {
+  const [ session, loading ] = useSession()
+  const router = useRouter()
     
-    if(!session){
-      return(
-        <div className="flex w-screen h-screen">
-            <div className="mx-auto">
-                <Image src={logo} width={400}></Image>
-                <div className="flex flex-col items-center">
-                    <p className="text-center text-6xl">Panjan Wiki</p>
-                    {!session && <div>
-                        <Button onClick={signIn} className="text-center w-48 m-8">Sign In</Button>
-                    </div>}
-                    {session && <div>
-                        <Button onClick={signOut} className="text-center w-48 m-8">Sign Out</Button>
-                        <p>{session.user.name}</p>
-                        <p>{session.user.email}</p>
-                    </div>}
-                </div>
+  useEffect(() => {
+    if(session) router.push("/");
+  })
+  
+  
+  return(
+    <div className="flex w-screen h-screen">
+        <div className="mx-auto">
+            <Image src={logo} width={400}></Image>
+            <div className="flex flex-col items-center">
+                <p className="text-center text-6xl">Panjan Wiki</p>
+                <Button onClick={signIn} className="text-center w-48 m-8">Sign In</Button>
             </div>
         </div>
-      )
-    } else {
-      router.push("/")
-    }
-  
+    </div>
+  )
 }

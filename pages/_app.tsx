@@ -1,12 +1,9 @@
-import '../styles/index.css'
+import '../styles/index.css';
 import {useRequireLogin} from "../lib/useRequireLogin";
 import Head from 'next/head';
-import { Provider } from 'next-auth/client'
+import { Provider } from 'next-auth/client';
 
-function MyApp({ Component, pageProps }) {
-
-  useRequireLogin()
-
+function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <div className="font-mono">

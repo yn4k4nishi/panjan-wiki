@@ -5,8 +5,11 @@ import Container from '@/components/container'
 import Posts from '@/components/posts'
 
 import { useEntries } from '@/lib/swr-hooks'
+import { useRequireLogin } from "../lib/useRequireLogin"
 
 export default function IndexPage() {
+  useRequireLogin()
+
   const { entries, isLoading } = useEntries()
 
   if (isLoading) {
