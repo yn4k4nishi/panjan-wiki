@@ -27,7 +27,7 @@ export default function EditEntryPage() {
               </Link>
               <div className="flex flex-row-reverse">
                 <ButtonLink className="text-center w-48 m-8"
-                // href={`/entry/edit/${id}?title=${title}&content=${content}`}
+                  href={`/posts/edit/${id}?title=${data.title}&content=${data.content}`}
                 >
                   Edit
                 </ButtonLink>

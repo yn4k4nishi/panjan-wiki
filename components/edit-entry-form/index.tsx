@@ -23,7 +23,7 @@ export default function EntryForm() {
     e.preventDefault()
     setSubmitting(true)
     try {
-      const res = await fetch('/api/edit-entry', {
+      const res = await fetch('/api/posts/edit-entry', {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
