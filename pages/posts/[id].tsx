@@ -8,6 +8,7 @@ import Container from '@/components/container'
 import Link from 'next/link'
 import ButtonLink from '@/components/button-link'
 import Button from '@/components/button'
+import DeleteButton from '@/components/button-delete';
 
 import { signIn, signOut, useSession } from 'next-auth/client'
 
@@ -31,7 +32,7 @@ export default function EditEntryPage() {
                 >
                   Edit
                 </ButtonLink>
-                <Button className="text-center w-48 m-8">Delete</Button>
+                <DeleteButton id={id} className="text-center w-48 m-8" />
               </div>
             </div>
           </nav>
