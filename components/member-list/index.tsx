@@ -11,8 +11,6 @@ function MemberList({className=''}){
     const member = useSWR(`/api/member/get-list`, fetcher)
     const [name, setName] = useState("")
     const [mail, setMail] = useState("")
-    const [adding , setAdding] = useState(false)
-    const [deleting , setDeleting] = useState(false)
 
     const handleChangeName = (e) => {
         setName(() => e.target.value)
@@ -24,24 +22,20 @@ function MemberList({className=''}){
 
     async function AddMember(){
         if({name} != undefined && {mail} != undefined){
-            setAdding(true)
             let res = await fetch(`/api/member/add-member?name=${name}&mail=${mail}`)
             let json = await res.json()
             if (!res.ok) throw Error(json.message)
             setName('')
             setMail('')
             mutate('/api/member/get-list')
-            setAdding(false)
         }
     }
 
     async function DeleteMember( e ) {
-        setDeleting(true)
         let res = await fetch(`/api/member/delete-member?mail=${e}`)
         let json = await res.json()
         if (!res.ok) throw Error(json.message)
         mutate('/api/member/get-list')
-        setDeleting(false)
     }
 
     if(member.data){
