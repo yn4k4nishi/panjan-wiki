@@ -51,6 +51,7 @@ export default function IndexPage() {
             </Link>
             <ButtonLink href="/new" className="m-2">Create a New Post</ButtonLink>
             <Button onClick={signOut} className="text-center w-48 m-8">Sign Out</Button>
+            <ButtonLink href="/setting" className="m-2">Setting</ButtonLink>
           </div>
         </nav>
       </Container>

@@ -64,7 +64,7 @@ export default function EntryForm() {
       </div>
       <div className="my-4">
         <label htmlFor="title">
-          <p className="text-gray-500 text-md">Autor : date</p>
+          <p className="text-gray-500 text-md">Autor : {_date.getFullYear()}-{_}</p>
         </label>
       </div>
       <div className="my-4">
