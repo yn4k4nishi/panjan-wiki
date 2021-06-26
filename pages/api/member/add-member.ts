@@ -4,7 +4,7 @@ import { getSession } from 'next-auth/client'
 
 const handler: NextApiHandler = async (req, res) => {
   const session = await getSession({ req })
-  const { name, mail } = req.query
+  const { name, mail } = req.body
 
   if (session){
     try {
