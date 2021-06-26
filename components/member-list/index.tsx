@@ -25,7 +25,6 @@ function MemberList({className=''}){
     async function AddMember(){
         if({name} != undefined && {mail} != undefined){
             setAdding(true)
-            // throw Error(`${name}, ${mail}`)
             let res = await fetch(`/api/member/add-member?name=${name}&mail=${mail}`)
             let json = await res.json()
             if (!res.ok) throw Error(json.message)
@@ -36,14 +35,14 @@ function MemberList({className=''}){
         }
     }
 
-    // async function DeleteMember( e ) {
-        // setDeleting(true)
-        // let res = await fetch(`/api/member/delete-member?mail=${e}`)
-        // let json = await res.json()
-        // if (!res.ok) throw Error(json.message)
-        // mutate('/api/member/get-list')
-        // setDeleting(false)
-    // }
+    async function DeleteMember( e ) {
+        setDeleting(true)
+        let res = await fetch(`/api/member/delete-member?mail=${e}`)
+        let json = await res.json()
+        if (!res.ok) throw Error(json.message)
+        mutate('/api/member/get-list')
+        setDeleting(false)
+    }
 
     if(member.data){
         return(
@@ -58,9 +57,9 @@ function MemberList({className=''}){
                             <tr>
                                 <td className="border px-4 py-2">{e.name}</td>
                                 <td className="border px-4 py-2">{e.mail}</td>
-                                {/* <td className="px-4 py-2">
-                                    <Button onClick={() => DeleteMember({e.mail})}>Delete</Button>
-                                </td> */}
+                                <td className="px-4 py-2">
+                                    <Button onClick={() => DeleteMember(e.name) }>Delete</Button>
+                                </td>
                             </tr>
                         ))}
                         <tr>
@@ -73,10 +72,6 @@ function MemberList({className=''}){
                             <td className="px-4 py-2">
                                 <Button onClick={AddMember} className="px-7">Add</Button>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>{name}</td>
-                            <td>{mail}</td>
                         </tr>
                     </tbody>
                 </table>
