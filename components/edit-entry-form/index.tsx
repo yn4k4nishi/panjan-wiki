@@ -2,10 +2,14 @@ import { useState, useEffect } from 'react'
 import Router, { useRouter } from 'next/router'
 
 import Button from '../button'
+import Toggle from '../toggle'
 
 export default function EntryForm() {
   const [_title, setTitle] = useState('')
   const [_content, setContent] = useState('')
+  const [_author, setAuthor] = useState('')
+  const [_date, setDate] = useState(new Date())
+  const _public = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const router = useRouter()
   const { id, title, content } = router.query
@@ -70,9 +74,12 @@ export default function EntryForm() {
           onChange={(e) => setContent(e.target.value)}
         />
       </div>
-      <Button disabled={submitting} type="submit">
-        {submitting ? 'Saving ...' : 'Save'}
-      </Button>
+      <div className="flex flex-row-reverse">
+        <Button disabled={submitting} type="submit">
+          {submitting ? 'Saving ...' : 'Save'}
+        </Button>
+        <Toggle text="Public"></Toggle>
+      </div>
     </form>
   )
 }
