@@ -7,7 +7,7 @@ export function useRequireLogin() {
   const router = useRouter();
 
   useEffect(() => {
-    if (loading) return;
+    if (loading) return null;
     if (!session) router.push("/login");
   }, [loading, session])
 }
