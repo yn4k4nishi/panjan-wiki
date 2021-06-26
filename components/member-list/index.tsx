@@ -9,8 +9,8 @@ function fetcher(url: string) {
 
 function MemberList({className=''}){
     const member = useSWR(`/api/member/get-list`, fetcher)
-    const [name, setName] = useState('')
-    const [mail, setMail] = useState('')
+    const [name, setName] = useState("")
+    const [mail, setMail] = useState("")
     const [adding , setAdding] = useState(false)
     const [deleting , setDeleting] = useState(false)
 
@@ -22,7 +22,7 @@ function MemberList({className=''}){
         setMail(() => e.target.value)
     } 
 
-    async function AddMember({ name , mail }){
+    async function AddMember(){
         if({name} != undefined && {mail} != undefined){
             setAdding(true)
             // throw Error(`${name}, ${mail}`)
@@ -64,10 +64,6 @@ function MemberList({className=''}){
                             </tr>
                         ))}
                         <tr>
-                            <td>{name}</td>
-                            <td>{mail}</td>
-                        </tr>
-                        <tr>
                             <td className="border px-4 py-2">
                                 <input value={name} type="text" onChange={handleChangeName} className="focus:outline-none"></input>
                             </td>
@@ -77,6 +73,10 @@ function MemberList({className=''}){
                             <td className="px-4 py-2">
                                 <Button onClick={AddMember} className="px-7">Add</Button>
                             </td>
+                        </tr>
+                        <tr>
+                            <td>{name}</td>
+                            <td>{mail}</td>
                         </tr>
                     </tbody>
                 </table>
