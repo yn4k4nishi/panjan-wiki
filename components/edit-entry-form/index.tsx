@@ -9,7 +9,7 @@ export default function EntryForm() {
   const [_content, setContent] = useState('')
   const [_author, setAuthor] = useState('')
   const [_date, setDate] = useState(new Date())
-  const _public = useState(false)
+  const [_public, setPublic] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const router = useRouter()
   const { id, title, content } = router.query
@@ -51,11 +51,11 @@ export default function EntryForm() {
     <form onSubmit={submitHandler}>
       <div className="my-4">
         <label htmlFor="title">
-          <h3 className="font-bold">Title</h3>
+          <p className="font-bold text-lg">Title</p>
         </label>
         <input
           id="title"
-          className="shadow border rounded w-full"
+          className="shadow border rounded-lg w-full p-2 focus:outline-none"
           type="text"
           name="title"
           value={_title}
@@ -63,11 +63,16 @@ export default function EntryForm() {
         />
       </div>
       <div className="my-4">
+        <label htmlFor="title">
+          <p className="text-gray-500 text-md">Autor : date</p>
+        </label>
+      </div>
+      <div className="my-4">
         <label htmlFor="content">
-          <h3 className="font-bold">Content</h3>
+          <p className="font-bold text-lg">Content</p>
         </label>
         <textarea
-          className="shadow border resize-none focus:shadow-outline w-full h-48"
+          className="shadow border rounded-lg focus:outline-none w-full h-96 p-2"
           id="content"
           name="content"
           value={_content}
@@ -78,7 +83,7 @@ export default function EntryForm() {
         <Button disabled={submitting} type="submit">
           {submitting ? 'Saving ...' : 'Save'}
         </Button>
-        <Toggle text="Public"></Toggle>
+        <Toggle text={_public ? "Public" : "Private"} onChange={() => setPublic(!_public)}></Toggle>
       </div>
     </form>
   )
