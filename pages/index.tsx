@@ -4,7 +4,7 @@ import Container from '@/components/container'
 import Posts from '@/components/posts'
 import ButtonLink from '@/components/button-link'
 import Button from '@/components/button'
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { signOut } from 'next-auth/client'
 import { useEntries } from '@/lib/swr-hooks'
 import { useRequireLogin } from "../lib/useRequireLogin"
 
@@ -51,7 +51,6 @@ export default function IndexPage() {
             </Link>
             <ButtonLink href="/new" className="m-2">Create a New Post</ButtonLink>
             <Button onClick={signOut} className="text-center w-48 m-8">Sign Out</Button>
-            <ButtonLink href="/setting" className="m-2">Setting</ButtonLink>
           </div>
         </nav>
       </Container>
