@@ -1,5 +1,6 @@
 import Skeleton from 'react-loading-skeleton'
 import Link from 'next/link'
+import Image from 'next/image'
 import Container from '@/components/container'
 import Posts from '@/components/posts'
 import ButtonLink from '@/components/button-link'
@@ -8,6 +9,8 @@ import { signOut } from 'next-auth/client'
 import { useEntries } from '@/lib/swr-hooks'
 import { useRequireLogin } from "../lib/useRequireLogin"
 
+import logo from '../public/logo.svg'
+
 export default function IndexPage() {
   useRequireLogin()
 
@@ -15,29 +18,7 @@ export default function IndexPage() {
 
   if (isLoading) {
     return (
-      <div>
-        <Container className="py-4">
-          <nav>
-            <div className="flex justify-between items-center">
-              <Link href="/">
-                <a className="font-bold text-3xl">Posts</a>
-              </Link>
-              <ButtonLink href="/new" className="m-2">Create a New Post</ButtonLink>
-              <Button onClick={signOut} className="text-center w-48 m-8">Sign Out</Button>
-            </div>
-          </nav>
-        </Container>
-        <Container>
-          <Skeleton width={180} height={24} />
-          <Skeleton height={48} />
-          <div className="my-4" />
-          <Skeleton width={180} height={24} />
-          <Skeleton height={48} />
-          <div className="my-4" />
-          <Skeleton width={180} height={24} />
-          <Skeleton height={48} />
-        </Container>
-      </div>
+      <Image src={logo} className="h-1/3"></Image>
     )
   }
 
@@ -45,12 +26,15 @@ export default function IndexPage() {
     <div>
       <Container className="py-4">
         <nav>
-          <div className="flex justify-between items-center">
+          <div className="flex flex-row items-center">
+            <Image src={logo} width={64} height={64}></Image>
             <Link href="/">
-              <a className="font-bold text-3xl">Posts</a>
+              <a className="font-bold text-3xl mx-8">Posts</a>
             </Link>
-            <ButtonLink href="/new" className="m-2">Create a New Post</ButtonLink>
-            <Button onClick={signOut} className="text-center w-48 m-8">Sign Out</Button>
+          </div>
+          <div className="flex items-center justify-center sm:flex-col">
+            <ButtonLink href="/new" className="text-center self-center w-48 mx-6 my-2 h-12">Create a New Post</ButtonLink>
+            <Button onClick={signOut} className="text-center w-48 mx-6 my-2 h-12">Sign Out</Button>
           </div>
         </nav>
       </Container>

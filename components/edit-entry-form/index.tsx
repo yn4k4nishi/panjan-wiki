@@ -4,10 +4,12 @@ import Router, { useRouter } from 'next/router'
 import Button from '../button'
 import Toggle from '../toggle'
 
+import useSWR from 'swr'
+
 export default function EntryForm() {
   const [_title, setTitle] = useState('')
   const [_content, setContent] = useState('')
-  const [_author, setAuthor] = useState('')
+  const _author = useSWR(`/api/member/get-username`, (url:string)=>window.fetch(url).then((res)=>res.json()))
   const [_date, setDate] = useState(new Date())
   const [_public, setPublic] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -64,7 +66,10 @@ export default function EntryForm() {
       </div>
       <div className="my-4">
         <label htmlFor="title">
-          <p className="text-gray-500 text-md">Autor : {_date.getFullYear()}-{_date.getMonth}-{_date.getDay}</p>
+          <p className="text-gray-500 text-md">
+            <p>Author : </p>
+            <p>Date : {_date.getFullYear()}-{_date.getMonth()}-{_date.getDate()} {_date.getHours()}:{_date.getMinutes()} </p>
+          </p>
         </label>
       </div>
       <div className="my-4">
