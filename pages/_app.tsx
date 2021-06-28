@@ -4,9 +4,11 @@ import Head from 'next/head';
 import { Provider } from 'next-auth/client';
 
 function MyApp({ Component, pageProps, router }) {
+  useRequireLogin()
+
   return (
     <>
-      <div className="font-mono">
+      <div className="font-sans">
         <Head>
           <title>Panjan Wiki</title>
           <link rel="shortcut icon" href="/favicon.svg" />
