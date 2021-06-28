@@ -18,7 +18,14 @@ export default function IndexPage() {
 
   if (isLoading) {
     return (
-      <Image src={logo} className="h-1/3"></Image>
+      <div className="flex w-screen h-screen">
+        <div className="mx-auto">
+            <Image src={logo} width={400}></Image>
+            <div className="flex flex-col items-center">
+                <p className="text-center text-6xl">Loading ...</p>
+            </div>
+        </div>
+    </div>
     )
   }
 
