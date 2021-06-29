@@ -20,7 +20,7 @@ export default function IndexPage() {
     return (
       <div className="flex w-screen h-screen">
         <div className="mx-auto">
-            <Image src={logo} width={400}></Image>
+            <Image src={logo} className="w-1/2"></Image>
             <div className="flex flex-col items-center">
                 <p className="text-center text-6xl">Loading ...</p>
             </div>
