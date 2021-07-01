@@ -12,14 +12,14 @@ export default function EditEntryPage() {
             <Link href="/">
               <a className="font-bold text-3xl">Edit</a>
             </Link>
-            {/* <div className="flex flex-row-reverse">
-              <ButtonLink className="text-center w-48 m-8"
+            <div className="flex flex-row-reverse">
+              {/* <ButtonLink className="text-center w-48 m-8"
                 href={`/posts/edit/${id}?title=${data.title}&content=${data.content}`}
               >
                 Edit
               </ButtonLink>
-              <DeleteButton id={id} className="text-center w-48 m-8" />
-            </div> */}
+              <DeleteButton id={id} className="text-center w-48 m-8" /> */}
+            </div>
           </div>
         </nav>
       </Container>

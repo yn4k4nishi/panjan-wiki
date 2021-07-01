@@ -5,6 +5,7 @@ import Button from '../button'
 import Toggle from '../toggle'
 
 import useSWR from 'swr'
+import { session, useSession } from 'next-auth/client'
 
 export default function EntryForm() {
   const [_title, setTitle] = useState('')
@@ -15,6 +16,7 @@ export default function EntryForm() {
   const [submitting, setSubmitting] = useState(false)
   const router = useRouter()
   const { id, title, content } = router.query
+  const [ session, loading ] = useSession()
 
   useEffect(() => {
     if (typeof title === 'string') {
@@ -67,7 +69,7 @@ export default function EntryForm() {
       <div className="my-4">
         <label htmlFor="title">
           <p className="text-gray-500 text-md">
-            <p>Author : </p>
+            <p>Author : {session.user.name} </p>
             <p>Date : {_date.getFullYear()}-{_date.getMonth()}-{_date.getDate()} {_date.getHours()}:{_date.getMinutes()} </p>
           </p>
         </label>
