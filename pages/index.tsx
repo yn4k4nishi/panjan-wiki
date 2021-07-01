@@ -47,7 +47,7 @@ export default function IndexPage() {
     <div>
       <Container className="py-4">
         <nav>
-          <div className="flex justify-between items-center bg-gradient-to-l from-green-400">
+          <div className="flex justify-between items-center bg-gradient-to-l from-blue-400">
             <div className="flex items-center">
               <Image src={logo} width={64} height={64}></Image>
               <Link href="/">
