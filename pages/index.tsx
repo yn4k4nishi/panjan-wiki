@@ -8,14 +8,27 @@ import Button from '@/components/button'
 import { signOut, useSession } from 'next-auth/client'
 import { useEntries } from '@/lib/swr-hooks'
 import { useRequireLogin } from "../lib/useRequireLogin"
+import { Menu } from '@material-ui/core'
+import { MenuItem } from '@material-ui/core'
 
 import logo from '../public/logo.svg'
+import { useState , MouseEvent } from 'react'
 
 export default function IndexPage() {
   useRequireLogin()
 
   const { entries, isLoading } = useEntries()
   const [ session, loading ] = useSession()
+  
+  const [ anchorEl, setAnchorEl ] = useState<null | HTMLElement>(null)
+
+  const handleClick = (event: MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
 
   if (isLoading) {
     return (
@@ -41,11 +54,25 @@ export default function IndexPage() {
                 <a className="font-bold text-3xl mx-8">Posts</a>
               </Link>
             </div>
-            {!loading && 
-              <div className="flex items-center mx-4">
+            {!loading && <>
+              <button className="flex items-center mx-4 focus:outline-none" onClick={handleClick}>
                 <Image src={session.user.image} width={48} height={48} className="rounded-full"></Image>
-              </div>
-            }
+              </button>
+              <Menu
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+                elevation={0}
+                getContentAnchorEl={null}
+                anchorOrigin = {{vertical:'bottom', horizontal:'right'}}
+                transformOrigin = {{vertical:'top', horizontal:'right'}}
+              >
+                <MenuItem>Profile</MenuItem>
+                <MenuItem>Setting</MenuItem>
+                <MenuItem>Sign Out</MenuItem>
+              </Menu>
+            </>}
           </div>
           <div className="flex items-center justify-center sm:flex-col">
             <ButtonLink href="/new" className="text-center w-48 mx-6 my-2 h-12">Create a New Post</ButtonLink>
