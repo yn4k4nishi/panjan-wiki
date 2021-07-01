@@ -54,7 +54,7 @@ export default function IndexPage() {
                 <a className="font-bold text-3xl mx-8">Posts</a>
               </Link>
             </div>
-            {!loading && <>
+            { !loading && Boolean(session) && <>
               <button className="flex items-center mx-4 focus:outline-none" onClick={handleClick}>
                 <Image src={session.user.image} width={48} height={48} className="rounded-full"></Image>
               </button>
@@ -68,15 +68,21 @@ export default function IndexPage() {
                 anchorOrigin = {{vertical:'bottom', horizontal:'right'}}
                 transformOrigin = {{vertical:'top', horizontal:'right'}}
               >
-                <MenuItem>Profile</MenuItem>
-                <MenuItem>Setting</MenuItem>
-                <MenuItem>Sign Out</MenuItem>
+                <div className="px-2 py-1 mx-2 my-1 border">
+                  <p>Profile</p>
+                  <ul>
+                    <li className="text-xs mx-2">{session.user.name}</li>
+                    <li className="text-xs mx-2">{session.user.email}</li>
+                  </ul>
+                </div>
+                <Link href="/setting"><MenuItem>Setting</MenuItem></Link>
+                <MenuItem onClick={signOut}>Sign Out</MenuItem>
               </Menu>
             </>}
           </div>
           <div className="flex items-center justify-center sm:flex-col">
             <ButtonLink href="/new" className="text-center w-48 mx-6 my-2 h-12">Create a New Post</ButtonLink>
-            <Button onClick={signOut} className="text-center w-48 mx-6 my-2 h-12">Sign Out</Button>
+            {/* <Button onClick={signOut} className="text-center w-48 mx-6 my-2 h-12">Sign Out</Button> */}
           </div>
         </nav>
       </Container>
