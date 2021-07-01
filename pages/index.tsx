@@ -76,7 +76,7 @@ export default function IndexPage() {
                   </ul>
                 </div>
                 <Link href="/setting"><MenuItem>Setting</MenuItem></Link>
-                <MenuItem onClick={() => {handleClose();signOut()}}>Sign Out</MenuItem>
+                <MenuItem onClick={() => { handleClose(); signOut() }}>Sign Out</MenuItem>
               </Menu>
             </>}
           </div>
