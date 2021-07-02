@@ -16,8 +16,8 @@ const handler: NextApiHandler = async (req, res) => {
       }
       const results = await query(
         `
-        SELECT id, title, content
-        FROM entries
+        SELECT *
+        FROM posts
         WHERE id = ?
       `,
         id

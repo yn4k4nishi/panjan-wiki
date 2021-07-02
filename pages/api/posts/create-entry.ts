@@ -4,22 +4,22 @@ import { getSession } from 'next-auth/client'
 
 const handler: NextApiHandler = async (req, res) => {
   const session = await getSession({ req })
-  const { title, content } = req.body
+  const { title, content, author, date, _public } = req.body
 
   if (session){
     try {
-      if (!title || !content) {
+      if (!title || !content || !author || !date || !_public) {
         return res
           .status(400)
-          .json({ message: '`title` and `content` are both required' })
+          .json({ message: '`title`, `content`, `author`, `date` and `_public` are required' })
       }
   
       const results = await query(
         `
-        INSERT INTO entries (title, content)
-        VALUES (?, ?)
+        INSERT INTO posts (title, content, author, date, public)
+        VALUES (?, ?, ?, ?, ?)
         `,
-        [title, content]
+        [title, content, author, date, _public]
       )
   
       return res.json(results)

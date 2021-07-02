@@ -16,7 +16,7 @@ const handler: NextApiHandler = async (req, res) => {
       }
       const results = await query(
         `
-        DELETE FROM entries
+        DELETE FROM posts
         WHERE id = ?
         `,
         id

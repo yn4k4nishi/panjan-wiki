@@ -7,9 +7,8 @@ const handler: NextApiHandler = async (req, res) => {
   if (session){
     try {
       const results = await query(`
-        SELECT * FROM entries
-        ORDER BY id DESC
-        LIMIT 10
+        SELECT * FROM posts
+        ORDER BY date DESC
     `)
   
       return res.json(results)
