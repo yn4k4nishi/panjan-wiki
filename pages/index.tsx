@@ -65,8 +65,8 @@ export default function IndexPage() {
                 onClose={handleClose}
                 elevation={0}
                 getContentAnchorEl={null}
-                anchorOrigin = {{vertical:'bottom', horizontal:'right'}}
-                transformOrigin = {{vertical:'top', horizontal:'right'}}
+                anchorOrigin = {{vertical:'bottom', horizontal:'left'}}
+                transformOrigin = {{vertical:'top', horizontal:'left'}}
               >
                 <div className="px-2 py-1 mx-2 my-1 border">
                   <p>Profile</p>
@@ -82,7 +82,6 @@ export default function IndexPage() {
           </div>
           <div className="flex items-center justify-center sm:flex-col">
             <ButtonLink href="/new" className="text-center w-48 mx-6 my-2 h-12">Create a New Post</ButtonLink>
-            {/* <Button onClick={signOut} className="text-center w-48 mx-6 my-2 h-12">Sign Out</Button> */}
           </div>
         </nav>
       </Container>

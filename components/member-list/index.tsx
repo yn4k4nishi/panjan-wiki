@@ -7,7 +7,7 @@ function fetcher(url: string) {
   return window.fetch(url).then((res) => res.json())
 }
 
-function MemberList({className=''}){
+function MemberList({ className='' }){
     const member = useSWR(`/api/member/get-list`, fetcher)
     const [name, setName] = useState("")
     const [mail, setMail] = useState("")

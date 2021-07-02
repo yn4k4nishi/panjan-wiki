@@ -8,7 +8,7 @@ const handler: NextApiHandler = async (req, res) => {
     try {
       const results = await query(
         `
-        SELECT name FROM member where mail = ?
+        SELECT name FROM member where mail = ? limit 1
         `,session.user.email
       )
       return res.json(results)
